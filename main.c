@@ -129,7 +129,7 @@ int main() {
       fprintf(fichier,"%s %d\n",NEWname,score); 
       fclose(fichier);
     }
-    fichier=fopen("record2.txt","r");
+    fichier=fopen("record3.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     printf("High Score is %d by %s in level 3/n",sco,name);
