@@ -85,15 +85,15 @@ int main() {
     if(fichier==NULL){
       exit(1);
     }
-    fichier=fopen("record1.txt","r");
+    fichier=fopen("Desktop/projet-c-main/record1.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     if(sco<=score){
-      fichier=fopen("record1.txt","w");
+      fichier=fopen("Desktop/projet-c-main/record1.txt","w");
       fprintf(fichier,"%s %d",NEWname,score); 
       fclose(fichier);
     }
-    fichier=fopen("record1.txt","r");
+    fichier=fopen("Desktop/projet-c-main/record1.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     printf("High Score is %d by %s in level 1\n",sco,name);
@@ -103,15 +103,15 @@ int main() {
     if(fichier==NULL){
       exit(1);
     }
-    fichier=fopen("record2.txt","r");
+    fichier=fopen("Desktop/projet-c-main/record2.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     if(sco<=score){
-      fichier=fopen("record2.txt","w");
+      fichier=fopen("Desktop/projet-c-main/record2.txt","w");
       fprintf(fichier,"%s %d\n",NEWname,score); 
       fclose(fichier);
     }
-    fichier=fopen("record2.txt","r");
+    fichier=fopen("Desktop/projet-c-main/record2.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     printf("High Score is %d by %s in level 2\n",sco,name);
@@ -121,15 +121,15 @@ int main() {
     if(fichier==NULL){
       exit(1);
     }
-    fichier=fopen("record3.txt","r");
+    fichier=fopen("Desktop/projet-c-main/record3.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     if(sco<=score){
-      fichier=fopen("record3.txt","w");
+      fichier=fopen("Desktop/projet-c-main/record3.txt","w");
       fprintf(fichier,"%s %d\n",NEWname,score); 
       fclose(fichier);
     }
-    fichier=fopen("record3.txt","r");
+    fichier=fopen("Desktop/projet-c-main/record3.txt","r");
     fscanf(fichier,"%s %d",name,&sco);
     fclose(fichier);
     printf("High Score is %d by %s in level 3/n",sco,name);
