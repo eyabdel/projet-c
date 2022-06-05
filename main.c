@@ -14,7 +14,7 @@ int main() {
   int lvl=0;
   Titlegame(tetris);                  //display the title
   printf("Enter your name: \n");      // ask the user to enter its name
-  scanf("%s",&NEWname);
+  scanf("%c",&NEWname);
   flush();
   
   while(lvl !=1 &&  lvl !=2 && lvl !=3){    //ask to choose the level as long as the user didn't enter 1,2 or 3
