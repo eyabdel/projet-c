@@ -8,7 +8,7 @@ int a;
    
     while( scanf("%d", &a) != 1)
     {
-        printf("Saisir votre choix un entier svp : ");
+        printf("Enter an integer please: ");
         while(getchar() != '\n');
     }
   } while (a < 1 || a > max);
@@ -16,7 +16,7 @@ int a;
   return a;
   }
 
-/*This function empties the buffer*/
+/*This function allows to eliminate the elements of the scanf that are not expected*/
 void flush(){
 int a;
 char b;
@@ -509,7 +509,7 @@ void color(char tab[100][100],int l,int c)
     tab[l][c]='7';
   }
 }
-/*display(tab): This function displays a grid of 14 lines and 10 columns with the 4 first lines not visible.*/
+/*display(tab): This function displays a grid of 14 lines and 10 columns with the 4 first lines not visible because it's the overflow zone.*/
 void display(char tab[100][100]) {
   for (int l = 0; l < 14; l++)
   {
@@ -539,9 +539,9 @@ void display(char tab[100][100]) {
   printf("\n\n\n");
 }
 
-// aleaforme
+// randompiece(tab): This function choose randomly between 7 pieces and ask the user to choose a direction as long as the user didn't choose a direction among those proposed. It calls the function corresponding to the chosen direction which ask a column to the user and place the piece in the grid. 
 void randompiece(char tab[100][100]) {
-  int n;
+  int d;
   int alea = rand() % 7;
 
   if (alea == 0) {
@@ -553,21 +553,21 @@ void randompiece(char tab[100][100]) {
     printf("\33[38;2;255;255;255m");
     do {
       printf("Choose direction: ");
-      scanf("%d", &n);
+      scanf("%d", &d);
       flush();
-      if (n == 1) {
+      if (d == 1) {
         T(tab);
       }
-      if (n == 2) {
+      if (d == 2) {
         Td1(tab);
       }
-      if (n == 3) {
+      if (d == 3) {
         Td2(tab);
       }
-      if (n == 4) {
+      if (d == 4) {
         Td3(tab);
       }
-    } while (n != 1 && n != 2 && n != 3 && n != 4);
+    } while (d != 1 && d != 2 && d != 3 && d != 4);
   }
   if (alea == 1) {
     printf("\n1  2\n");
@@ -576,14 +576,14 @@ void randompiece(char tab[100][100]) {
     printf("\33[38;2;255;255;255m");
     do {
       printf("Choose direction: ");
-      scanf("%d", &n);
+      scanf("%d", &d);
       flush();
-      if (n == 1) {
+      if (d == 1) {
         IV(tab);
-      } else if (n == 2) {
+      } else if (d == 2) {
         IH(tab);
       }
-    } while (n != 1 && n != 2);
+    } while (d != 1 && d != 2);
   }
   if (alea == 2) {
     printf("\33[38;2;255;255;0m");
@@ -600,14 +600,14 @@ void randompiece(char tab[100][100]) {
     printf("\33[38;2;255;255;255m");
     do {
       printf("Choose direction: ");
-      scanf("%d", &n);
+      scanf("%d", &d);
       flush();
-      if (n == 1) {
+      if (d == 1) {
         Z(tab);
-      } else if (n == 2) {
+      } else if (d == 2) {
         Zd(tab);
       }
-    } while (n != 1 && n != 2);
+    } while (d != 1 && d != 2);
   }
   if (alea == 4) {
     printf("  1      2\n");
@@ -618,14 +618,14 @@ void randompiece(char tab[100][100]) {
     printf("\33[38;2;255;255;255m");
     do {
       printf("Choose direction: ");
-      scanf("%d", &n);
+      scanf("%d", &d);
       flush();
-      if (n == 1) {
+      if (d == 1) {
         S(tab);
-      } else if (n == 2) {
+      } else if (d == 2) {
         Sd(tab);
       }
-    } while (n != 1 && n != 2);
+    } while (d != 1 && d != 2);
   }
   if (alea == 5) {
     printf(" 1      2      3      4\n");
@@ -636,22 +636,22 @@ void randompiece(char tab[100][100]) {
     printf("\33[38;2;255;255;255m");
     do {
       printf("Choose direction: ");
-      scanf("%d", &n);
+      scanf("%d", &d);
       flush();
-      if (n == 1) {
+      if (d == 1) {
         J(tab);
       }
-      if (n == 2) {
+      if (d == 2) {
         Jd1(tab);
       }
-      if (n == 3) {
+      if (d == 3) {
         Jd2(tab);
       }
-      if (n == 4) {
+      if (d == 4) {
         Jd3(tab);
       }
 
-    } while (n != 1 && n != 2 && n != 3 && n != 4);
+    } while (d != 1 && d != 2 && d != 3 && d != 4);
     
   }
   if (alea == 6) {
@@ -663,25 +663,31 @@ void randompiece(char tab[100][100]) {
     printf("\33[38;2;255;255;255m");
     do {
       printf("Choose direction: ");
-      scanf("%d", &n);
+      scanf("%d", &d);
       flush();
-      if (n == 1) {
+      if (d == 1) {
         L(tab);
       }
-      if (n == 2) {
+      if (d == 2) {
         Ld1(tab);
       }
-      if (n == 3) {
+      if (d == 3) {
         Ld2(tab);
       }
-      if (n == 4) {
+      if (d == 4) {
         Ld3(tab);
       }
-    } while (n != 1 && n != 2 && n != 3 && n != 4);
+    } while (d != 1 && d != 2 && d != 3 && d != 4);
   }  
 }
 
-// verification des lignes
+/* check(tab): 
+check(tab)=-1 means that the user lost (game over)
+check(tab)>=0 corresponds to the number of removed lines.
+The first "for" allows to check if we exceed the grid. It checks if there is a caracter different from space (ASCII:32) in the overflow zone. If it's the case, the function return -1.
+The second "for" allows to check if the line is filled. Then, the function count the number of filled lines and return this number.*/
+
+
 int check(char tab[100][100]) {
   int compt = 0;
   for (int l = 0; l <= 3; l++) 
