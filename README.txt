@@ -2,8 +2,9 @@
 Instructions for use: 
  
 To launch it you have to open your terminal and place yourself at the place of the file.
-Then you have to do this command "make".
-Then the title of the game is displayed and you choose level 1, 2 or 3:
+Then you have to do the command "make".
+Then the title of the game is displayed and you enter your name. 
+After, you choose level 1, 2 or 3:
 Level 1: unlimited time
 Level 2: 15 seconds to play a piece
 Level 3: 10 seconds to play a piece
@@ -19,4 +20,4 @@ Your score will increase if you complete as many rows as possible.
 4 lines removed=+1200 pts
 
 Game over if you go over the time limit or if a piece spills over the top of the grid
-
+Endly you can see your final score and the best score played in the level that you choosed.
